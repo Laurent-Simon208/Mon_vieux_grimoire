@@ -5,10 +5,10 @@ const auth = require('../middleware/auth');
 const multer = require('../middleware/sharp-multer');
 
 const booksCtrl = require('../controllers/books');
-
+router.post('/', auth, multer, booksCtrl.createBook);
 router.get('/bestrating', booksCtrl.bestRatingBook);
 router.get('/', booksCtrl.getAllBooks);
-router.post('/', auth, multer, booksCtrl.createBook);
+
 router.get('/:id', booksCtrl.getOneBook);
 router.put('/:id', auth, multer, booksCtrl.modifyBook);
 router.delete('/:id', auth, booksCtrl.deleteBook);
