@@ -1,7 +1,7 @@
 const Book = require('../models/Book');
 const mongoose = require('mongoose');
 const fs = require('fs');
-const { log } = require('console');
+
 
 exports.createBook = (req, res, next) => {
   const bookObject = JSON.parse(req.body.book);

@@ -4,10 +4,13 @@ const app = express();
 const booksRoutes = require('./routes/books');
 const userRoutes = require('./routes/user');
 const path = require('path');
+require('dotenv').config();
 
-mongoose.connect('mongodb+srv://mon-vieux-grimoire:openClassroomMonVieuxGrimoire1@cluster0.zmdlyux.mongodb.net/?retryWrites=true&w=majority',
-  { useNewUrlParser: true,
-    useUnifiedTopology: true })
+mongoose
+  .connect(process.env.mongoDb_password, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
